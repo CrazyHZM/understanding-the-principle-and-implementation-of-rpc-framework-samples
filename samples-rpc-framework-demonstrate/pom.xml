@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>understanding-the-principle-and-implementation-of-rpc-framework-samples</artifactId>
+        <groupId>com.crazyhzm</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>samples-rpc-framework-demonstrate</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>rpc-framework-demonstrate-consumer</module>
+        <module>rpc-framework-demonstrate-provider</module>
+        <module>rpc-framework-demonstrate-api</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+            <dependency>
+                <groupId>com.crazyhzm</groupId>
+                <artifactId>samples-rpc-framework</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+    </dependencies>
+
+</project>

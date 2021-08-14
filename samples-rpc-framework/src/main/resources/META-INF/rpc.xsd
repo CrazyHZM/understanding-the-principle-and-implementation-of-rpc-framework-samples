@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns="https://www.crazyhzm.com/schema/crazyrpc"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="https://www.crazyhzm.com/schema/crazyrpc">
+    <!-- 应用 -->
+    <xsd:element name="application">
+        <xsd:complexType>
+            <!--应用ID-->
+            <xsd:attribute name="id" type="xsd:string" fixed="application"/>
+            <!--应用名称-->
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <!-- 服务端 -->
+    <xsd:element name="server">
+        <xsd:complexType>
+            <!-- 服务ID -->
+            <xsd:attribute name="id" type="xsd:string" fixed="server"/>
+            <!-- 监听端口 -->
+            <xsd:attribute name="port" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- 注册中心 -->
+    <xsd:element name="register">
+        <xsd:complexType>
+            <!-- ID -->
+            <xsd:attribute name="id" type="xsd:string" fixed="register"/>
+            <!-- ip -->
+            <xsd:attribute name="ip" type="xsd:string"/>
+            <!-- 端口 -->
+            <xsd:attribute name="port" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- 服务 -->
+    <xsd:element name="service">
+        <xsd:complexType>
+            <!-- ID -->
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+            <!-- 服务接口名称 -->
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+            <!-- 服务实现类 -->
+            <xsd:attribute name="impl" type="xsd:string"/>
+            <!-- 服务实现相关类 -->
+            <xsd:attribute name="ref" type="xsd:string"/>
+            <!-- 版本 -->
+            <xsd:attribute name="version" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- 客户端 -->
+    <xsd:element name="client">
+        <xsd:complexType>
+            <!-- 客户端ID -->
+            <xsd:attribute name="id" type="xsd:string" fixed="client"/>
+            <!-- 负载均衡 -->
+            <xsd:attribute name="load_balance" default="random">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <!--随机-->
+                        <xsd:enumeration value="random"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- 引用 -->
+    <xsd:element name="reference">
+        <xsd:complexType>
+            <!-- ID -->
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+            <!-- 服务接口名称 -->
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+            <!-- 版本 -->
+            <xsd:attribute name="version" type="xsd:string"/>
+            <!-- 超时毫秒数 -->
+            <xsd:attribute name="timeout" type="xsd:integer" default="10000"/>
+            <!-- 定向服务IP -->
+            <xsd:attribute name="direct_server_ip" type="xsd:string"/>
+            <!-- 定向服务端口 -->
+            <xsd:attribute name="direct_server_port" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>
